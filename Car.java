@@ -29,6 +29,7 @@ public class Car {
     }
 
     /**
+     * Setter
      * Add a `Passenger` from the `Car`
      * @return T/F: return `True` if the operation was successful, and `False` otherwise
      */
@@ -42,6 +43,7 @@ public class Car {
     }
 
     /**
+     * Setter
      * remove a `Passenger` from the `Car`
      * @return T/F: return `True` if the operation was successful, and `False` otherwise
      */
@@ -68,4 +70,5 @@ public class Car {
         System.out.println("This car is EMPTY");
     }
 
+    }
 }
