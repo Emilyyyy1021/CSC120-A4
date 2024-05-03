@@ -1,17 +1,17 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Train {
 
     private Engine engine;
-    private List<Car> cars;
+    private ArrayList<Car> cars;
 
-    public Train(FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
-        this.engine = new Engine(fuelType, fuelCapacity);
-        this.cars = new ArrayList<>();
-        carList(nCars, passengerCapacity);
+    public Train(FuelType fuelType, double fuelLevel, double maxfuel, int nCars, int passengerCapacity) {
+        this.engine = new Engine(fuelType, fuelLevel, maxfuel);
+        this.cars = new ArrayList<Car>();
+        addCars(nCars, passengerCapacity);
     }
 
-    private void carList(int nCars, int passengerCapacity) {
+    private void addCars(int nCars, int passengerCapacity) {
         for (int i = 0; i < nCars; i++) {
             Car car = new Car(passengerCapacity);
             cars.add(car);
@@ -42,7 +42,7 @@ public class Train {
     public int getMaxCapacity() {
         int maxCapacity = 0;
         for (Car car : cars) {
-            maxCapacity += car.get(maxfuel);
+            maxCapacity += car.getCapacity();
         }
         return maxCapacity;
 
@@ -70,4 +70,5 @@ public class Train {
             car.printManifest();
         }
     }
+
 }

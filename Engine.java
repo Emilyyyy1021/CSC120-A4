@@ -1,20 +1,22 @@
+import java.util.ArrayList;
+
 public class Engine {
 
     private FuelType fuelType;
     private double fuelLevel;
+    private double maxfuel = fuelLevel;
 
-    public Engine(FuelType fuelType, double fuelLevel) {
+    public Engine(FuelType fuelType, double fuelLevel, double maxfuel) {
         this.fuelType = fuelType;
         this.fuelLevel = fuelLevel;
+        this.maxfuel = maxfuel;
     } 
-
-    double maxfuel = fuelLevel;
 
     /**
      * Setter for FuelLevel
      * @param refuel updated reset the `Engine`'s current fuel level to the maximum
      */
-    public void refuel(double fuelLevel) {
+    public void refuel() {
         this.fuelLevel = maxfuel;
     }
 
@@ -24,8 +26,8 @@ public class Engine {
      */
     public boolean go() {
         if (fuelLevel > 0) {
-            System.out.println("Remaining fuel level: " + fuelLevel);
             fuelLevel -= 10; 
+            System.out.println("Remaining fuel level: " + fuelLevel);
             return true;
         } else {
             return false;
@@ -34,7 +36,7 @@ public class Engine {
 
     // Test code
     public static void main(String[] args) {
-        Engine myEngine = new Engine(FuelType.ELECTRIC, 100.0);
+        Engine myEngine = new Engine(FuelType.ELECTRIC, 100.0, 100.0);
         while (myEngine.go()) {
             System.out.println("Choo choo!");
         }
